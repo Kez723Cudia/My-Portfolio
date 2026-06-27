@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 def home(request):
-    return HttpResponse("Welcome to My Portfolio!")
+    return render(request, 'portfolio/home.html')
 
 # Create your views here.
