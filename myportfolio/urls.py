@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include # I forgor to include this 'include' so I added it now YAY =D
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('portfolio.urls')),  # Include the URLs from the portfolio app YAY may shortcut agad =D
 ]

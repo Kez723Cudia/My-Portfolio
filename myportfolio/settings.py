@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'portfolio', #writing this means I have created an app called portfolio and I want to include it in my project YAY =D
 ]
 
 MIDDLEWARE = [
