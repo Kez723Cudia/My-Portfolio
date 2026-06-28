@@ -10,8 +10,9 @@
             background: linear-gradient(90deg, #1e3c72, #2a5298);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 600; /* half-thicker than Captain */
         }
-        /* Thicker font */
+        /* Thicker font for Captain */
         .hero-name {
             font-weight: 900;
         }
@@ -31,6 +32,7 @@
             padding: 20px;
             margin-bottom: 20px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            font-weight: 700; /* make text solid */
         }
         /* Containers for stack/status */
         .custom-container {
@@ -39,12 +41,15 @@
             padding: 20px;
             margin-top: 30px;
             text-align: center;
+            color: #1e3c72; /* solid blue text */
+            font-weight: 700;
         }
         .status-light {
             color: #f8f9fa;
+            font-weight: 700;
         }
         .status-faded {
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.8);
         }
         /* Navbar tracker dots */
         .nav-link.active::after {
@@ -53,13 +58,29 @@
             font-size: 20px;
             margin-left: 5px;
         }
-        /* See More arrow */
-        .see-more {
+        /* Vertical line arrows */
+        .vertical-line-right {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 2px solid #2a5298;
+            padding-left: 10px;
+        }
+        .vertical-line-left {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            border-right: 2px solid #2a5298;
+            padding-right: 10px;
+        }
+        .arrow-link {
             color: #2a5298;
             font-weight: bold;
-            cursor: pointer;
+            text-decoration: none;
         }
-        .see-more:hover {
+        .arrow-link:hover {
             text-decoration: underline;
         }
     </style>
@@ -82,7 +103,7 @@
 
     <!-- Hero Section -->
     <div class="container mt-5">
-        <div class="row align-items-center">
+        <div class="row align-items-start">
             <!-- Left side -->
             <div class="col-md-6 text-center text-md-start">
                 <h1 class="display-3 text-white hero-name">Captain</h1>
@@ -91,7 +112,10 @@
                     <p class="lead">Full stack engineer</p>
                     <p class="lead">Improves systems -- Innovates products</p>
                 </div>
-                <a href="/contact/" class="btn btn-primary btn-lg mt-3">Get in Touch</a>
+                <!-- Button directly below tagline -->
+                <div class="mt-3">
+                    <a href="/contact/" class="btn btn-primary btn-lg">Get in Touch</a>
+                </div>
             </div>
 
             <!-- Right side -->
@@ -102,22 +126,28 @@
                 <div class="info-card">
                     <h4>10+ Clients Worldwide</h4>
                 </div>
+                <div class="custom-container">
+                    <h3>PRIMARY STACK</h3>
+                    <p>Python, Django, SQLite3, PostgreSQL, HTML, JavaScript, Next.js, ...</p>
+                </div>
+                <div class="custom-container">
+                    <h5 class="status-light">Open for Opportunities</h5>
+                    <p class="status-faded">Available for full-time roles & consulting.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Primary Stack -->
-    <div class="container custom-container mt-5">
-        <h3 class="text-primary">PRIMARY STACK</h3>
-        <p class="text-light">Python, Django, SQLite3, PostgreSQL, HTML, JavaScript, Next.js, ...</p>
-        <a href="/about/" class="see-more">See More ></a>
+    <!-- Vertical navigation arrows -->
+    <div class="vertical-line-right">
+        <a href="/about/" class="arrow-link">See More ></a>
     </div>
-
-    <!-- Status -->
-    <div class="container custom-container mt-5">
-        <h5 class="status-light">Open for Opportunities</h5>
-        <p class="status-faded">Available for full-time roles & consulting.</p>
+    <!-- Back arrow only appears on non-hero pages -->
+    {% if request.path != '/' %}
+    <div class="vertical-line-left">
+        <a href="/" class="arrow-link">< Back</a>
     </div>
+    {% endif %}
 
 </body>
 </html>
