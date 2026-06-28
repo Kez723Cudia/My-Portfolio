@@ -1,28 +1,123 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Portfolio</title>
+    <title>Captain Ky - Full Stack Engineer</title>
     {% load static %}
-    <!-- Local Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'portfolio/css/bootstrap.min.css' %}">
+    <style>
+        /* Gradient text for Ky */
+        .gradient-text {
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Thicker font */
+        .hero-name {
+            font-weight: 900;
+        }
+        /* Vertical line beside tagline */
+        .tagline {
+            border-left: 4px solid #2a5298;
+            padding-left: 12px;
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        /* Info cards */
+        .info-card {
+            background-color: rgba(30, 60, 114, 0.2); /* semi-transparent blue */
+            color: #1e3c72; /* solid blue text */
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        /* Containers for stack/status */
+        .custom-container {
+            background-color: rgba(30, 60, 114, 0.2);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .status-light {
+            color: #f8f9fa;
+        }
+        .status-faded {
+            color: rgba(255,255,255,0.6);
+        }
+        /* Navbar tracker dots */
+        .nav-link.active::after {
+            content: "•";
+            color: #2a5298;
+            font-size: 20px;
+            margin-left: 5px;
+        }
+        /* See More arrow */
+        .see-more {
+            color: #2a5298;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .see-more:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body class="container mt-5 bg-dark text-light">
+<body class="bg-dark text-light">
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">My Portfolio</a>
+            <a class="navbar-brand" href="/">Captain Ky</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Hero</a>
+                <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="/about/">About</a>
+                <a class="nav-link {% if request.path == '/projects/' %}active{% endif %}" href="/projects/">Projects</a>
+                <a class="nav-link {% if request.path == '/skills/' %}active{% endif %}" href="/skills/">Skills</a>
+                <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="/contact/">Contact</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="text-center">
-        <h1 class="text-info">Welcome to My Portfolio!</h1>
-        <p class="lead text-light">This is the beginning of my Django-powered portfolio site.</p>
-        <a href="#" class="btn btn-outline-light btn-lg mt-3">Explore Projects</a>
+    <div class="container mt-5">
+        <div class="row align-items-center">
+            <!-- Left side -->
+            <div class="col-md-6 text-center text-md-start">
+                <h1 class="display-3 text-white hero-name">Captain</h1>
+                <h2 class="display-4 gradient-text">Ky</h2>
+                <div class="tagline">
+                    <p class="lead">Full stack engineer</p>
+                    <p class="lead">Improves systems -- Innovates products</p>
+                </div>
+                <a href="/contact/" class="btn btn-primary btn-lg mt-3">Get in Touch</a>
+            </div>
+
+            <!-- Right side -->
+            <div class="col-md-6">
+                <div class="info-card">
+                    <h4>5 Years Building Scalable Systems</h4>
+                </div>
+                <div class="info-card">
+                    <h4>10+ Clients Worldwide</h4>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Local Bootstrap JS -->
-    <script src="{% static 'portfolio/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- Primary Stack -->
+    <div class="container custom-container mt-5">
+        <h3 class="text-primary">PRIMARY STACK</h3>
+        <p class="text-light">Python, Django, SQLite3, PostgreSQL, HTML, JavaScript, Next.js, ...</p>
+        <a href="/about/" class="see-more">See More ></a>
+    </div>
+
+    <!-- Status -->
+    <div class="container custom-container mt-5">
+        <h5 class="status-light">Open for Opportunities</h5>
+        <p class="status-faded">Available for full-time roles & consulting.</p>
+    </div>
+
 </body>
 </html>

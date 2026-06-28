@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/bootstrap.min.css' %}">
+</head>
+<body class="bg-light">
+
+    <!-- Navbar (same tracker as hero) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Captain Ky</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Hero</a>
+                <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="/about/">About</a>
+                <a class="nav-link {% if request.path == '/projects/' %}active{% endif %}" href="/projects/">Projects</a>
+                <a class="nav-link {% if request.path == '/skills/' %}active{% endif %}" href="/skills/">Skills</a>
+                <a class="nav-link {% if request.path == '/contact/' %}active{% endif %}" href="/contact/">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Left side: contact details -->
+            <div class="col-md-6">
+                <h3>Quick Connect</h3>
+                <p>Email: kmcudia@student.hau.edu.ph</p>
+                <p>Github: @Kez723Cudia</p>
+                <p>LinkedIn: Kezia Yuriese Cudia</p>
+            </div>
+
+            <!-- Right side: contact form -->
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Your Name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="Your Email">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Subject">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" placeholder="Drop a Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back link -->
+    <div class="container text-center mt-4">
+        <a href="/skills/" class="btn btn-outline-secondary">&lt; Back</a>
+    </div>
+
+</body>
+</html>
